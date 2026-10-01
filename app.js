@@ -4,31 +4,33 @@
 
   // ---------- icon set ----------
   const PALETTE = [
-    ['#c9b0ff', '#8a6cf0'], ['#ff9bb8', '#f0568a'], ['#b3a6ff', '#7058e6'], ['#ffc29a', '#f58b4c'],
-    ['#8fb4ff', '#5b8df5'], ['#ffc08a', '#f58b4c'], ['#9be6a8', '#4cc36a'], ['#ffa6cf', '#ee5fa7'],
-    ['#9ad3ff', '#4aa9ee'], ['#ffa28f', '#f2694f'], ['#a6eab0', '#52c46f'], ['#ffe08a', '#f2b53b'],
+    ['#b794ff', '#8a5cf0'], ['#ff7aa6', '#f0457f'], ['#9a8cff', '#6b52e8'], ['#ff9f80', '#f2693f'],
+    ['#6fa8ff', '#4b86ee'], ['#ffb066', '#f58b2a'], ['#7be08f', '#3cc15c'], ['#ff8cc6', '#ec4fa0'],
+    ['#7cc8ff', '#3fa3ee'], ['#ff9482', '#f2563f'], ['#86e69a', '#43c864'], ['#ffd666', '#f2b020'],
   ];
   const GLYPHS = [
-    'M4 11l8-7 8 7v9H4zM10 20v-6h4v6',                                   // house
-    'M8 20a3 3 0 100-.01M16 18a3 3 0 100-.01M8 17c0-6 3-10 8-12M16 15c0-4-1-7-2-10', // cherry
-    'M12 4l6 16M12 4L6 20M8.5 14h7',                                     // A
-    'M3 17h18v-2l-6-2-3-3-5 3-4 1zM8 17v-3',                             // sneaker
-    'M5 8h14v10H5zM9 8V6h6v2',                                           // bag
-    'M12 4l2.5 5 5.5.8-4 3.9 1 5.5-5-2.7-5 2.7 1-5.5-4-3.9 5.5-.8z',     // star
-    'M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.500-7 10-7 10z', // heart
-    'M5 12l5 5 9-10',                                                    // check
-    'M5 19c0-9 5-14 14-14 0 9-5 14-14 14zM5 19l7-7',                     // leaf
-    'M12 8a4 4 0 100 8 4 4 0 000-8zM12 3v2M12 19v2M3 12h2M19 12h2',      // sun
-    'M13 3L5 14h6l-1 7 8-11h-6z',                                        // bolt
-    'M5 5h6a3 3 0 013 3v11a2 2 0 00-2-2H5zM19 5h-5',                     // book
+    'M6 20V11a6 6 0 0112 0v9l-2.5-2-2 2-1.5-2-1.5 2-2-2zM10 11h.01M14 11h.01',        // ghost
+    'M8 20a3 3 0 100-.01M16 18a3 3 0 100-.01M8 17c0-6 3-10 8-12M16 15c0-4-1-7-2-10',   // cherry
+    'M12 3c3 2 4 6 4 10l-1.500 3h-5L8 13c0-4 1-8 4-10zM9.500 18l-1 3M14.500 18l1 3M12 10h.01', // rocket
+    'M12 4a8 8 0 100 16 8 8 0 000-16zM12 8a4 4 0 100 8 4 4 0 000-8zM12 12h.01',        // target
+    'M3 15l5-5 3 2 8 1 1 2v0H3zM3 19h18',                                              // sneaker
+    'M12 4l2.500 5 5.500.8-4 3.900 1 5.500-5-2.700-5 2.700 1-5.500-4-3.900 5.500-.8z',         // star
+    'M5 19c0-9 5-14 14-14 0 9-5 14-14 14zM5 19l7-7',                                   // leaf
+    'M9 18V6l10-2v12M9 18a2.500 2.500 0 11-5 0 2.500 2.500 0 015 0zM19 16a2.500 2.500 0 11-5 0 2.500 2.500 0 015 0z', // music
+    'M3 19l6-10 4 6 3-4 5 8z',                                                         // mountain
+    'M12 20s-7-4.500-7-10a4 4 0 017-2.500A4 4 0 0119 10c0 5.500-7 10-7 10z',             // heart
+    'M13 3L5 14h6l-1 7 8-11h-6z',                                                      // bolt
+    'M5 9h11v5a4 4 0 01-4 4H9a4 4 0 01-4-4zM16 10h2a2 2 0 010 4h-2M8 3v3M12 3v3',      // cup
   ];
-  const icoHTML = i => {
+  const HOUSE = 'M4 11l8-7 8 7v8a1 1 0 01-1 1H5a1 1 0 01-1-1zM10 20v-5h4v5';
+  const MARK = 'M7 4h10a1 1 0 011 1v15l-6-4-6 4V5a1 1 0 011-1z';
+  const icoHTML = (i, path) => {
     const [a, b] = PALETTE[i];
-    return `<div class="ico" style="--c1:${a};--c2:${b}"><svg viewBox="0 0 24 24"><path d="${GLYPHS[i]}"/></svg></div>`;
+    return `<div class="ico" style="--c1:${a};--c2:${b}"><svg viewBox="0 0 24 24"><path d="${path || GLYPHS[i]}"/></svg></div>`;
   };
-  const makeIco = (i, cls = '') => {
+  const makeIco = (i, cls = '', path) => {
     const d = document.createElement('div');
-    d.innerHTML = icoHTML(i);
+    d.innerHTML = icoHTML(i, path);
     const e = d.firstChild; if (cls) e.classList.add(...cls.split(' ')); return e;
   };
 
@@ -76,7 +78,9 @@
     $('#count').textContent = notes.length;
     const all = sorted();
     $('#peek').innerHTML = '';
-    all.slice(0, 3).reverse().forEach(n => $('#peek').append(makeIco(n.icon)));
+    const top3 = all.slice(0, 3);
+    const order = top3.length === 3 ? [top3[1], top3[0], top3[2]] : top3.length === 2 ? [top3[1], top3[0]] : top3;
+    order.forEach(n => $('#peek').append(makeIco(n.icon, n === top3[0] ? '' : 'round')));
 
     const showAll = tab === 'saved' || query;
     $('#list-title').textContent = query ? 'Results' : tab === 'saved' ? 'All notes' : 'Recent';
@@ -211,9 +215,14 @@
     await run(fico, [{ transform: 'translateY(40px)', opacity: 1 }, { transform: `translateY(${fy}px) scale(.65)`, opacity: .9 }], { duration: 600 });
     tab = 'home'; query = ''; $('#q').value = ''; $('#search').hidden = true;
     show('home'); renderHome();
-    const first = $('#peek').lastElementChild; first && first.classList.add('drop');
+    const first = $('#peek').children[$('#peek').children.length === 3 ? 1 : $('#peek').children.length - 1]; first && first.classList.add('drop');
     const f = $('#folder'); f.classList.remove('bounce'); void f.offsetWidth; f.classList.add('bounce');
   }
+
+  // ---------- tab icons ----------
+  document.querySelectorAll('.tab').forEach(t => {
+    t.querySelector('svg').replaceWith(makeIco(0, 'sm', t.dataset.tab === 'home' ? HOUSE : MARK));
+  });
 
   // ---------- init ----------
   show('home'); renderHome();
