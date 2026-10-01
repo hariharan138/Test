@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Chit</title>
+<meta name="theme-color" content="#efefef">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Chit">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="phone">
+  <div id="app">
+
+    <!-- HOME -->
+    <section class="screen" id="home">
+      <header class="home-head">
+        <div>
+          <div class="date" id="date"></div>
+          <h1>Notes</h1>
+        </div>
+        <button class="circle-btn" id="search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/></svg>
+        </button>
+      </header>
+
+      <div class="search" id="search" hidden><input id="q" placeholder="Search notes" autocomplete="off"></div>
+
+      <div class="folder-wrap" id="folder-wrap">
+        <div class="folder" id="folder">
+          <div class="peek" id="peek"></div>
+          <div class="f-back"></div><div class="f-back2"></div>
+          <div class="f-front">
+            <div class="count" id="count">0</div>
+            <div class="pill"><span>Notes</span><i></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-head"><b id="list-title">Recent</b><button id="see-all">See all</button></div>
+      <div class="list" id="list"></div>
+    </section>
+
+    <!-- NEW NOTE -->
+    <section class="screen" id="editor" hidden>
+      <div class="bar">
+        <button class="circle-btn sm" id="back" aria-label="Back"><svg viewBox="0 0 24 24"><path d="M14 6l-6 6 6 6"/></svg></button>
+        <div class="bar-title"><b id="bar-title">New note</b><small id="bar-step">Step 1 of 2</small></div>
+        <button class="circle-btn sm" id="close" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></button>
+      </div>
+
+      <div class="step" id="step1">
+        <h2>Select an icon<br>for your note</h2>
+        <div class="big-ico" id="big-ico"></div>
+        <div class="grid" id="grid"></div>
+      </div>
+
+      <div class="step" id="step2" hidden>
+        <h2>What’s on your<br>mind today?</h2>
+        <div class="paper" id="paper">
+          <div class="p-head">
+            <div class="ico sm" id="p-ico"></div>
+            <div><input id="title" value="Morning note" maxlength="40" aria-label="Title"><small id="stamp"></small></div>
+          </div>
+          <textarea id="body" rows="5" placeholder="Start typing…" autocapitalize="sentences"></textarea>
+          <span class="tag">#daily</span>
+        </div>
+        <button class="del" id="del" hidden>Delete note</button>
+      </div>
+
+      <button class="go" id="go" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </section>
+
+    <!-- FOLD ANIMATION -->
+    <section class="screen" id="fold" hidden>
+      <div class="fold-stage" id="fold-stage"></div>
+    </section>
+
+    <!-- TAB BAR -->
+    <nav class="tabs" id="tabs">
+      <button class="tab on" data-tab="home"><div class="ico sm" id="t-home"></div><span>Home</span></button>
+      <button class="tab" data-tab="saved"><div class="ico sm" id="t-saved"></div><span>Saved</span></button>
+      <button class="fab" id="fab" aria-label="New note"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+    </nav>
+    <div class="home-ind"></div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "Chit — Notes that fold away",
+  "short_name": "Chit",
+  "description": "Notes that fold away.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#efefef",
+  "theme_color": "#efefef",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
