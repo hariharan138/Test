@@ -186,7 +186,7 @@
       <div class="fico"></div>
       <div class="paper"><div class="p-head"><div class="ico sm"></div><div><input disabled><small></small></div></div>
       <textarea disabled></textarea><span class="tag">#daily</span></div>
-      <div class="folder"><div class="f-back"></div><div class="f-back2"></div>
+      <div class="folder"><div class="f-back"></div><div class="f-mid"></div>
       <div class="f-front"><div class="count">${notes.length - 1}</div><div class="pill"><span>Notes</span><i></i></div></div></div>`;
     const paper = stage.querySelector('.paper');
     paper.querySelector('.p-head .ico').outerHTML = icoHTML(draft.icon).replace('class="ico"', 'class="ico sm"');

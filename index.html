@@ -34,8 +34,8 @@
 
       <div class="folder-wrap" id="folder-wrap">
         <div class="folder" id="folder">
+          <div class="f-back"></div><div class="f-mid"></div>
           <div class="peek" id="peek"></div>
-          <div class="f-back"></div><div class="f-back2"></div>
           <div class="f-front">
             <div class="count" id="count">0</div>
             <div class="pill"><span>Notes</span><i></i></div>
@@ -84,8 +84,9 @@
 
     <!-- TAB BAR -->
     <nav class="tabs" id="tabs">
-      <button class="tab on" data-tab="home"><div class="ico sm" id="t-home"></div><span>Home</span></button>
-      <button class="tab" data-tab="saved"><div class="ico sm" id="t-saved"></div><span>Saved</span></button>
+      <button class="tab on" data-tab="home"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v8a1 1 0 01-1 1H5a1 1 0 01-1-1z"/><path d="M10 20v-5h4v5"/></svg><span>Home</span></button>
+      <span class="gap"></span>
+      <button class="tab" data-tab="saved"><svg viewBox="0 0 24 24"><path d="M7 4h10a1 1 0 011 1v15l-6-4-6 4V5a1 1 0 011-1z"/></svg><span>Saved</span></button>
       <button class="fab" id="fab" aria-label="New note"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
     </nav>
     <div class="home-ind"></div>
